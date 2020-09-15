@@ -6,7 +6,7 @@ function Post() {
     const [post, setpost]=useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/posts')
+        axios.get('/posts')
         .then(res=>setpost(res.data))
         .catch(err=>console.log(err))
     }) 

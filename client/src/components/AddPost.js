@@ -18,7 +18,7 @@ function AddPost() {
             auth:auth
         }
 
-        axios.post('http://localhost:5000/addpost', blog)
+        axios.post('/addpost', blog)
         .then(res=>setmsg(res.data))
         .catch(err=>console.log(err))
     }

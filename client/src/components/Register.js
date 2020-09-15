@@ -13,7 +13,7 @@ function Register() {
             password: pass
         }
 
-        axios.post('http://localhost:5000/register',data)
+        axios.post('/register',data)
         .then(resp=>{
             if(resp) {
                 alert('Successfully registered.  Now Login')

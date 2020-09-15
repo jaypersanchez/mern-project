@@ -126,3 +126,13 @@ brew services start mongodb/brew/mongodb-community
  ### Mongod Console
 
  mongod --dbpath=/Users/jaypersanchez/data/db
+
+ ## Deployment
+
+ Use server Heroku.  Sign up.  Use Heroku for deployment
+
+### The command below will build the entire project and save in a build folder.  Run this command first from the 'client' folder
+
+````
+ npm run build
+ ````
