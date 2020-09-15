@@ -1,6 +1,33 @@
 const express = require('express')
 const route = express.Router()
 const User = require('../model/user')
+const Blog = require('../model/postmodel')
+
+
+//Post retrieval
+route.get('/posts', (req, res)=>{
+   Blog.find((err,data)=>{
+       if(err) {
+           res.json(err)
+       }
+       else {
+           res.json(data)
+       }
+   })
+})
+
+//Adding Post
+route.post('/addpost', (req, res)=>{
+    let adding = new Blog(req.body)
+    adding.save((err,docs)=>{
+        if(err) {
+            res.json('Try again')
+        }
+        else {
+            res.json('Post Added')
+        }
+    })
+})
 
 //Register
 route.post('/register', (req, res)=>{

@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 function Login() {
     const [email, setemail]=useState('')
     const [pass, setpass]=useState('')
     const [msg, setmsg]=useState('')
+    const history = useHistory()
 
     function LoginCheck(e) {
         e.preventDefault()
@@ -17,6 +18,7 @@ function Login() {
         axios.post('http://localhost:5000/login',data)
         .then(resp=>{
             if(resp.data=="1") {
+                history.push('/posts')
                 setmsg("Successful Login")
             }
             else if(resp.data=="0") {

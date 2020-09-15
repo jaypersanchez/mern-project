@@ -10,34 +10,26 @@ function AddPost() {
     const [desc,setdesc]=useState('')
     const [msg,setmsg]=useState('')
 
-    function setTitle(e) {
+    function handleSubmit(e) {
         e.preventDefault()
-        let data = {
-            title: title
+        const blog = {
+            title:title,
+            desc:desc,
+            auth:auth
         }
 
-        axios.post('http://localhost:5000/login',data)
-        .then(resp=>{
-            if(resp.data=="1") {
-                setmsg("Successful Login")
-            }
-            else if(resp.data=="0") {
-                setmsg("Invalid Credentials")
-            }
-            else {
-                setmsg("No user Found.  Please register this user")
-            }
-        })
+        axios.post('http://localhost:5000/addpost', blog)
+        .then(res=>setmsg(res.data))
         .catch(err=>console.log(err))
     }
-
+    
     return (
         <div>
            <NavBar /> 
            
             <div className='container mt-5'>
             <h2 className='m-5 text-center'>Add New Post</h2>
-                <form  className='col-md-6 mx-auto'>
+                <form  className='col-md-6 mx-auto' onSubmit={handleSubmit}>
                 <h5 className='p-3 text-center text-white'>{msg}</h5>
                                 <div className="form-group">
                                     <label>Title</label>
@@ -45,13 +37,13 @@ function AddPost() {
                                     type="text" 
                                     value={title} 
                                     className="form-control" 
-                                    onChange={(e)=>{setTitle(e.target.value)}} 
+                                    onChange={(e)=>{settitle(e.target.value)}} 
                                     placeholder="Enter Title" required />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Description</label>
-                                    <input 
+                                    <textarea 
                                     type="text" value={desc} 
                                     className="form-control" 
                                     onChange={(e)=>{setdesc(e.target.value)}}
