@@ -143,3 +143,7 @@ heroku create <name of the project>
 
 https://blogmern.herokuapp.com/ | https://git.heroku.com/blogmern.git
 https://jayperblog.herokuapp.com/ | https://git.heroku.com/jayperblog.git
+
+git add .
+git commit -m "comment"
+git push heroku master
