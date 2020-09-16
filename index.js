@@ -14,7 +14,8 @@ app.use(express.json())
 app.use('/', MainRouter)
 
 const Mongourl = 'mongodb://localhost:27017/mern'
-mongoose.connect(Mongourl,{useNewUrlParser:true, useUnifiedTopology:true}, (err)=>{
+const MongoOnline = 'mongodb+srv://dbblog:dbblog@cluster0.oiwye.mongodb.net/mern?retryWrites=true&w=majority'
+mongoose.connect(MongoOnline || Mongourl,{useNewUrlParser:true, useUnifiedTopology:true}, (err)=>{
     if(!err) {
         console.log('Connected to MongoDB MernProject Collection')
     }

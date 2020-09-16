@@ -136,3 +136,10 @@ brew services start mongodb/brew/mongodb-community
 ````
  npm run build
  ````
+
+## Install Heroku CLI
+
+heroku create <name of the project>
+
+https://blogmern.herokuapp.com/ | https://git.heroku.com/blogmern.git
+https://jayperblog.herokuapp.com/ | https://git.heroku.com/jayperblog.git
