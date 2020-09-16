@@ -137,7 +137,10 @@ brew services start mongodb/brew/mongodb-community
  npm run build
  ````
 
-## Install Heroku CLI
+## Required Install for Deployment
+
+1. Install Heroku CLI
+2. Signup for Mongo Atlas a cloud based mongo database cluster
 
 heroku create <name of the project>
 
